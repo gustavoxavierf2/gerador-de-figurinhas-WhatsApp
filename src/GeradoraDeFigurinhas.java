@@ -4,14 +4,11 @@ import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.InputStream;
-
 import javax.imageio.ImageIO;
-
 
 public class GeradoraDeFigurinhas {
 
     public void create(InputStream inputStream, String nomeArquivo) throws Exception {
-
         // leitura da imagem
         //InputStream inputStream = new URL("https://i0.wp.com/www.jbox.com.br/wp/wp-content/uploads/2022/06/oshinoko-destacada.jpg?fit=774%2C489&quality=99&strip=all&ssl=1").openStream();
         BufferedImage Original = ImageIO.read(inputStream);
@@ -32,7 +29,8 @@ public class GeradoraDeFigurinhas {
         graphics.setFont(fonte);
 
         // escrever uma frase na nova imagem
-        String tituloSerie = nomeArquivo.replace(".png", "");
+        String tituloSerie = nomeArquivo.replace(".png", "").replace("Imagens/", "");//retirando endereços de diretorio do titulo
+        //q vai aparecer na imagem
          graphics.drawString(tituloSerie, 100, novaAltura - 100);
         
 
@@ -41,9 +39,5 @@ public class GeradoraDeFigurinhas {
 
         
     }
-    /*public static void main(String[] args) throws Exception {
-        GeradoraDeFigurinhas geradoraDeFigurinhas = new GeradoraDeFigurinhas();
-        geradoraDeFigurinhas.create();
-    }*/
-    
 }
+    
